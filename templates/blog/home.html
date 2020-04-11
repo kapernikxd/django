@@ -2,9 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
 </head>
 <body>
-$END$
+    <!--<h1>hello world {{name.user}}</h1>-->
+     <p>Вывод категорий:</p>
+
+    {% for category in categories %}
+    <p><a href="{% url 'category' category.slug%}">{{category.name}} - {{category.slug}}</a></p>
+    {% endfor %}
+
+    <p>Вывод постов:</p>
+    {% for post in posts %}
+    <p><a href="{% url 'post' post.slug%}">{{post.title}} - {{post.mini_text}}  - {{post.text}} - {{post.slug}}</a></p>
+    {% endfor %}
+
 </body>
 </html>
